@@ -1,0 +1,9 @@
+{
+  "appId": "com.tnxeditz.orders",
+  "appName": "TNX EDITZ",
+  "webDir": "www",
+  "backgroundColor": "#080A12",
+  "android": {
+    "allowMixedContent": false
+  }
+}
