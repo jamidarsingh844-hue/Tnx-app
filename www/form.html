@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080A12">
+<style>
+html{color-scheme:dark;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px);background:#080A12}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+.appnav{padding:10px max(16px,env(safe-area-inset-left,0px)) 0;font-family:"Inter","Segoe UI",Roboto,system-ui,sans-serif}
+.appnav a{display:inline-flex;align-items:center;min-height:44px;color:#67E8F9;text-decoration:none;font-weight:600;font-size:.9rem}
+</style>
+<title>TNX EDITZ Order Form</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* TNX EDITZ design system. Midnight black ground, electric purple actions, ice blue highlights. Layout: one narrow centred column. Service choice, project details, a live preview of the message that will be copied, then the send button. */
+:root {
+  --bg: #080A12;
+  --surface: #111522;
+  --raised: #171C2B;
+  --ink: #F5F7FF;
+  --muted: #A7B0C5;
+  --line: rgba(255,255,255,.10);
+  --accent: #8B5CF6;
+  --accent-ink: #FFFFFF;
+  --accent-soft: rgba(139,92,246,.14);
+  --ice: #67E8F9;
+  --success: #34D399;
+  --danger: #F87171;
+  --grad: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%);
+  --glow: 0 6px 24px rgba(139,92,246,.35);
+  --font: "Inter", "Segoe UI", Roboto, system-ui, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background-color: var(--bg);
+  background-image: radial-gradient(60rem 28rem at 50% -8rem, rgba(139,92,246,.20), transparent 70%), radial-gradient(40rem 20rem at 100% 0, rgba(103,232,249,.07), transparent 70%);
+  background-repeat: no-repeat;
+  color: var(--ink);
+  font-family: var(--font); font-size: 16px; line-height: 1.45;
+  padding-block: 24px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 36rem; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+.eyebrow { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 700; color: var(--ice); margin-bottom: 8px; }
+h1 { font-size: 2rem; line-height: 1.1; margin: 0; letter-spacing: -0.02em; text-wrap: balance; }
+.lead { color: var(--muted); margin: 6px 0 0; }
+button, input, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--ice); outline-offset: 2px; }
+.card { box-shadow: 0 8px 30px rgba(0,0,0,.35); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 14px; }
+.card h2 { font-size: 1.15rem; margin: 0; }
+.field { display: flex; flex-direction: column; gap: 5px; min-width: 0; border: 0; padding: 0; margin: 0; }
+label, .legend { font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding: 0; }
+.hint { font-size: .8rem; color: var(--muted); margin: 0; }
+input[type="text"], input[type="tel"], input[type="url"], input[type="date"], textarea {
+  width: 100%; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: .6rem .7rem; min-height: 44px;
+}
+input[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: var(--danger); }
+textarea { min-height: 96px; resize: vertical; }
+.svcs { display: grid; grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr)); gap: 8px; }
+.svc input { position: absolute; opacity: 0; pointer-events: none; }
+.svc span { display: flex; align-items: center; justify-content: center; text-align: center; min-height: 48px; padding: .4rem .6rem; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); font-size: .95rem; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--ink); cursor: pointer; }
+.svc { position: relative; display: block; }
+.svc span:hover { border-color: var(--accent); }
+.svc input:checked + span { background: var(--grad); border-color: transparent; color: var(--accent-ink); box-shadow: var(--glow); }
+.svc input:focus-visible + span { outline: 2px solid var(--ice); outline-offset: 2px; }
+.btn { border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: .55rem 1rem; font-weight: 600; cursor: pointer; min-height: 44px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; text-align: center; color: var(--ink); }
+.btn:hover { border-color: var(--accent); }
+.btn.send { background: var(--grad); border-color: transparent; box-shadow: var(--glow); color: var(--accent-ink); font-size: 1.05rem; min-height: 52px; width: 100%; }
+.btn.send:hover { filter: brightness(1.1); border-color: transparent; }
+.btn.link { border-color: transparent; background: transparent; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; font-weight: 500; }
+pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font-family: inherit; font-size: .95rem; background: var(--raised); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; }
+.err { color: var(--danger); font-size: .9rem; min-height: 1.3em; margin: 0; }
+.note { color: var(--muted); font-size: .85rem; margin: 0; }
+.done { border: 1px solid var(--success); background: rgba(52,211,153,.10); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+.done strong { font-size: 1.1rem; }
+.done[hidden] { display: none; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 520px) { .two { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<nav class="appnav"><a href="index.html">&larr; TNX EDITZ home</a></nav>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">TNX EDITZ</div>
+    <h1>Place your order</h1>
+    <p class="lead">Choose a service and tell us what you need. Tap Send order and the chat opens with your order already copied. Paste it and send.</p>
+  </header>
+
+  <form class="card" id="form" novalidate>
+    <fieldset class="field" id="svcField">
+      <legend class="legend">Service</legend>
+      <div class="svcs" id="svcs" role="radiogroup" aria-label="Service"></div>
+    </fieldset>
+
+    <div class="field"><label for="project">Project title</label><input id="project" type="text" autocomplete="off" placeholder="e.g. Gaming montage for my channel"></div>
+    <div class="field">
+      <label for="details">Details</label>
+      <textarea id="details" placeholder="What you want, style, text on it, colours, music, length"></textarea>
+      <p class="hint">The more you tell us, the faster we can start.</p>
+    </div>
+    <div class="field"><label for="link">Reference link (optional)</label><input id="link" type="url" inputmode="url" placeholder="https://" autocomplete="off"><p class="hint">A link to your raw files or an example you like.</p></div>
+    <div class="field"><label for="deadline">Needed by (optional)</label><input id="deadline" type="date"></div>
+
+    <div class="two">
+      <div class="field"><label for="name">Your name</label><input id="name" type="text" autocomplete="name"></div>
+      <div class="field"><label for="contact">Instagram or phone</label><input id="contact" type="text" autocomplete="off" placeholder="@username or +91"></div>
+    </div>
+  </form>
+
+  <section class="card" aria-live="polite">
+    <h2>Your message</h2>
+    <pre id="preview"></pre>
+    <p class="err" id="err" role="alert"></p>
+    <a class="btn send" id="send" href="#" target="_blank" rel="noopener">Send order</a>
+    <p class="note">The message is copied when you tap Send order. In the chat, paste it and press send.</p>
+  </section>
+
+  <div class="done" id="done" hidden>
+    <strong id="doneTitle">Order copied</strong>
+    <span id="doneText"></span>
+    <div class="row">
+      <a class="btn" id="again" href="#" target="_blank" rel="noopener">Open chat again</a>
+      <button class="btn link" id="clear" type="button">Start a new order</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  /* Change this to the account that should receive orders. */
+  var IG_HANDLE = "ayush_maurya__321_";
+  var CHAT_URL = "https://ig.me/m/" + IG_HANDLE;
+  var SERVICES = ["Banner", "Video edit", "Thumbnail", "Logo", "Reel / Short", "Poster", "Other"];
+  var KEY = "tnxeditz.orderform";
+
+  function $(id) { return document.getElementById(id); }
+  function selected() { var r = document.querySelector('input[name="service"]:checked'); return r ? r.value : ""; }
+
+  SERVICES.forEach(function (s, i) {
+    var lab = document.createElement("label"); lab.className = "svc";
+    var inp = document.createElement("input"); inp.type = "radio"; inp.name = "service"; inp.value = s; inp.id = "svc" + i;
+    var sp = document.createElement("span"); sp.textContent = s;
+    lab.append(inp, sp); $("svcs").append(lab);
+  });
+
+  function message() {
+    var lines = ["New order", "Service: " + selected(), "Project: " + $("project").value.trim(),
+      "Name: " + $("name").value.trim(), "Contact: " + $("contact").value.trim()];
+    if ($("deadline").value) lines.push("Deadline: " + $("deadline").value);
+    if ($("link").value.trim()) lines.push("Link: " + $("link").value.trim());
+    lines.push("Details: " + $("details").value.trim().replace(/\s*\n\s*/g, " | "));
+    return lines.join("\n");
+  }
+  function problem() {
+    if (!selected()) return ["svcs", "Choose a service."];
+    if (!$("project").value.trim()) return ["project", "Enter a project title."];
+    if (!$("details").value.trim()) return ["details", "Tell us what you need in the details."];
+    if ($("link").value.trim() && !/^https?:\/\//i.test($("link").value.trim())) return ["link", "The link must start with http:// or https://."];
+    if (!$("name").value.trim()) return ["name", "Enter your name."];
+    if (!$("contact").value.trim()) return ["contact", "Enter your Instagram username or phone number."];
+    return null;
+  }
+  function save() {
+    try {
+      localStorage.setItem(KEY, JSON.stringify({ service: selected(), project: $("project").value, details: $("details").value,
+        link: $("link").value, deadline: $("deadline").value, name: $("name").value, contact: $("contact").value }));
+    } catch (e) {}
+  }
+  function clearMarks() {
+    document.querySelectorAll("[aria-invalid]").forEach(function (e) { e.removeAttribute("aria-invalid"); });
+  }
+  function update() { $("preview").textContent = message(); $("err").textContent = ""; clearMarks(); $("done").hidden = true; save(); }
+
+  function copy(text) {
+    function fallback() {
+      var ta = document.createElement("textarea"); ta.setAttribute("aria-hidden", "true");
+      ta.value = text; ta.style.cssText = "position:fixed;opacity:0;top:0;left:0";
+      document.body.append(ta); ta.select();
+      var ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+      ta.remove(); return ok;
+    }
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return fallback(); });
+      }
+    } catch (e) {}
+    return Promise.resolve(fallback());
+  }
+
+  $("send").setAttribute("href", CHAT_URL);
+  $("again").setAttribute("href", CHAT_URL);
+
+  $("send").addEventListener("click", function (e) {
+    var p = problem();
+    if (p) {
+      e.preventDefault(); $("err").textContent = p[1]; clearMarks();
+      var f = $(p[0]);
+      if (p[0] === "svcs") { var first = document.querySelector('input[name="service"]'); if (first) first.focus(); }
+      else if (f) { f.setAttribute("aria-invalid", "true"); f.focus(); }
+      return;
+    }
+    var native = window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform();
+    if (native) e.preventDefault();
+    copy(message()).then(function (ok) {
+      if (native) setTimeout(function () { window.location.href = CHAT_URL; }, 350);
+      $("doneTitle").textContent = ok ? "Order copied" : "Copy this message yourself";
+      $("doneText").textContent = ok
+        ? "Paste it in the chat that just opened and press send."
+        : "Your phone blocked copying. Select the message above, copy it, then paste it in the chat.";
+      $("done").hidden = false;
+    });
+  });
+  $("again").addEventListener("click", function (e) {
+    var native = window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform();
+    if (native) { e.preventDefault(); copy(message()).then(function () { window.location.href = CHAT_URL; }); }
+    else copy(message());
+  });
+
+  $("clear").addEventListener("click", function () {
+    ["project", "details", "link", "deadline", "name", "contact"].forEach(function (id) { $(id).value = ""; });
+    var r = document.querySelector('input[name="service"]:checked'); if (r) r.checked = false;
+    update(); window.scrollTo(0, 0);
+  });
+  $("form").addEventListener("input", update);
+  $("form").addEventListener("submit", function (e) { e.preventDefault(); });
+
+  var d = null;
+  try { d = JSON.parse(localStorage.getItem(KEY) || "null"); } catch (e) {}
+  if (d) {
+    ["project", "details", "link", "deadline", "name", "contact"].forEach(function (id) { $(id).value = d[id] || ""; });
+    var r = document.querySelector('input[name="service"][value="' + (d.service || "").replace(/"/g, "") + '"]'); if (r) r.checked = true;
+  }
+  update();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080A12">
+<title>TNX EDITZ</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* TNX EDITZ design system. Home screen with two big choices: place an order, or open the admin desk. */
+:root{--bg:#080A12;--surface:#111522;--raised:#171C2B;--ink:#F5F7FF;--muted:#A7B0C5;--line:rgba(255,255,255,.10);--accent:#8B5CF6;--ice:#67E8F9;--grad:linear-gradient(135deg,#8B5CF6 0%,#6366F1 100%);--glow:0 6px 24px rgba(139,92,246,.35);--font:"Inter","Segoe UI",Roboto,system-ui,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}
+html{padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px);background:#080A12}
+body{margin:0;min-height:100vh;background-color:var(--bg);background-image:radial-gradient(60rem 28rem at 50% -8rem,rgba(139,92,246,.24),transparent 70%),radial-gradient(40rem 20rem at 100% 0,rgba(103,232,249,.08),transparent 70%);background-repeat:no-repeat;color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.45;padding:40px max(16px,env(safe-area-inset-left,0px)) 40px max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:30rem;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+.eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--ice);margin-bottom:8px}
+h1{font-size:2.3rem;line-height:1.05;margin:0;letter-spacing:-.02em;text-wrap:balance}
+p{margin:8px 0 0;color:var(--muted)}
+.choices{display:flex;flex-direction:column;gap:12px}
+a.choice{display:flex;flex-direction:column;gap:4px;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;min-height:88px;box-shadow:0 8px 30px rgba(0,0,0,.35)}
+a.choice strong{font-size:1.15rem}
+a.choice span{color:var(--muted);font-size:.9rem}
+a.choice.main{background:var(--grad);border-color:transparent;box-shadow:var(--glow)}
+a.choice.main span{color:rgba(255,255,255,.85)}
+a.choice:focus-visible{outline:2px solid var(--ice);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">TNX EDITZ</div>
+    <h1>Edits that stand out</h1>
+    <p>Banners, videos, thumbnails and more.</p>
+  </header>
+  <div class="choices">
+    <a class="choice main" href="form.html"><strong>Place an order</strong><span>Pick a service, fill in the details and send it on Instagram.</span></a>
+    <a class="choice" href="desk.html"><strong>Admin</strong><span>Order desk for the TNX EDITZ team. Admin code needed.</span></a>
+  </div>
+</div>
+</body>
+</html>
